@@ -1,20 +1,23 @@
-let greet: Function; 
+// sometimes specifying the type can get long winded like below
+// const logDetails = (uid: string | number, item: string) => {
+//     console.log(`${item} has a uid of ${uid}`);
+// }
 
-// greet = 'hello world';
+// const greet = (user: {name: string, uid: string | number}) => {
+//     console.log(`${user.name} says hello`);
+// }
 
-greet = () => {
-    console.log('hello again');
+type StringorNum = string | number;
+type objWithName = { name: string, uid: StringorNum};
+
+const logDetails = (uid: StringorNum, item: string) => {
+    console.log(`${item} has a uid of ${uid}`);
 }
 
-const add = (a: number, b: number, c: number | string = 10) => {
-    console.log(a + b);
-    console.log(c);
+const greet = (user: objWithName) => {
+    console.log(`${user.name} says hello`);
 }
 
-add(5, 10, "20");
-
-const minus = (a: number, b: number): number => {
-    return a + b;
+const greetAgain = (user: objWithName) => {
+    console.log(`${user.name} says hello`);
 }
-
-let result = minus(10, 7);
