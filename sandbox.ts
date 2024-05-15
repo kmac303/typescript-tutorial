@@ -1,37 +1,27 @@
-// explicit types
-let character: string;
-let age: number;
-let isLoggedIn: boolean;
+// variable can be created and then be declared
+// let age : any;
+// age = 25;
 
-age = 30;
+// alternatively, a variable can be declared/initialized in one line
+let age: any = 25;
 
-isLoggedIn = true;
+age = true;
+console.log(age);
+age = 'hello';
+console.log(age);
+age = {name: 'luigi'}; 
+console.log(age);
+// this essentially rips out the benefits of typescript and reverts back to how JavaScript works
 
-// arrays
-let ninjas: string[];
+let mixed: any[] = [];
 
-ninjas = ["10", "23"];
-
-// union types
-let mixed: (string|number|boolean)[] = [];
-mixed.push('hello');
-mixed.push(20);
+mixed.push(5);
+mixed.push('mario');
 mixed.push(false);
 console.log(mixed);
 
-let uid: string|number;
-uid = '123';
-uid = 123;
+let ninja: { name: any, age: any, }
 
-// objects
-let ninjaOne: object;
-ninjaOne = { name: 'yoshi', age: 30}
-
-let ninjaTwo: {
-  name: string,
-  age: number, 
-  beltColor: string
-}
-
-ninjaTwo = {name: 'mario', age: 20, beltColor: 'black'
-}
+// ninja = { name: 25, age: 'yoshi'}
+ninja = { name: 'yoshi', age: 25}
+console.log(ninja);
