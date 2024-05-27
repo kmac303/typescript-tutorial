@@ -1,21 +1,4 @@
-"use strict";
-// classes
-class Invoice {
-    // readonly only allows read inside and outside of class, but not change the value
-    // readonly client: string;
-    // // private allows read and change inside of class
-    // private details: string;
-    // // public is default one. allows change and read in and outside of class
-    // public amount: number;
-    constructor(client, details, amount) {
-        this.client = client;
-        this.details = details;
-        this.amount = amount;
-    }
-    format() {
-        return `${this.client} owes $${this.amount} for ${this.details}`;
-    }
-}
+import { Invoice } from './classes/invoice.js';
 const invOne = new Invoice('kevin', 'work on the new website', 300);
 const invTwo = new Invoice('andrea', 'work on the hair website', 200);
 let invoices = [];
