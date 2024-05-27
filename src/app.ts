@@ -1,14 +1,17 @@
 // classes
 class Invoice {
-    client: string;
-    details: string;
-    amount: number;
+    // readonly only allows read inside and outside of class, but not change the value
+    // readonly client: string;
+    // // private allows read and change inside of class
+    // private details: string;
+    // // public is default one. allows change and read in and outside of class
+    // public amount: number;
 
-    constructor(c: string, d: string, a: number){
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
+    constructor(
+        readonly client: string,
+        private details: string,
+        public amount: number
+    ){}
 
     format() {
         return `${this.client} owes $${this.amount} for ${this.details}`
@@ -22,12 +25,16 @@ let invoices: Invoice[] = [];
 invoices.push(invOne);
 invoices.push(invTwo);
 
-invOne.client = 'yoshi';
-invTwo.amount = 400;
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format());
+})
 
-console.log(invOne, invTwo);
+// invOne.client = 'yoshi';
+// invTwo.amount = 400;
 
-console.log(invoices);
+// console.log(invOne, invTwo);
+
+// console.log(invoices);
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 // console.log(form.children);
